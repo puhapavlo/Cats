@@ -1,0 +1,7 @@
+pablo.cats:
+  path: '/pablo/cats'
+  defaults:
+    _controller: '\Drupal\pablo\Controller\CatsController::content'
+    _title: 'Hello! You can add here a photo of your cat.'
+  requirements:
+    _permission: 'access content'
