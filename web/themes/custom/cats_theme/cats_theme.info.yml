@@ -5,7 +5,7 @@ core_version_requirement: ^8 || ^9
 base theme: classy
 
 libraries:
-  - quarantie_theme/global-styling
+  - cats_theme/global-styling
 
 regions:
   header: Header
