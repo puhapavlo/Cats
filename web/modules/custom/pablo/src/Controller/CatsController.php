@@ -7,18 +7,18 @@
 namespace Drupal\pablo\Controller;
 
 /**
- * Provides route responses for the DrupalBook module.
+ * Provides route responses for the pablo module.
  */
 class CatsController {
 
   /**
-   * Returns a simple page.
+   * Returns a page.
    *
    * @return array
-   *   A simple renderable array.
+   *   A renderable array.
    */
   public function content() {
-    $element = [
+    return [
       '#type' => 'html_tag',
       '#tag' => 'h1',
       '#value' => 'Hello! You can add here a photo of your cat.',
@@ -26,7 +26,6 @@ class CatsController {
         'class' => ['cats-title'],
       ],
     ];
-    return $element;
   }
 
 }
