@@ -37,10 +37,10 @@ class __TwigTemplate_baf08a766c7195216bdca5567df6a75e8e0f0c657f772488de97577f58b
         $macros = $this->macros;
         // line 2
         echo "<div class=\"container\">
-  <p class=\"cats-title\">";
+  <h1 class=\"cats-title\">";
         // line 3
         echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["catsTitle"] ?? null), 3, $this->source), "html", null, true);
-        echo "</p>
+        echo "</h1>
 </div>
 ";
     }

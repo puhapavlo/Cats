@@ -1,0 +1,29 @@
+@import "../dev/variables";
+
+header{
+  padding: 30px 0px;
+  .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    &-item{
+      padding: 10px;
+
+      &:hover{
+        transition: all ease-in-out 0.3s;
+        background-color: $violet;
+        a{
+          color: #fff;
+        }
+      }
+
+      a{
+        text-decoration: none;
+        color: #111111;
+        font-size: 18px;
+      }
+    }
+  }
+}
