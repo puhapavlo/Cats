@@ -1,0 +1,11 @@
+name: Cats Theme
+type: theme
+description: 'Cats Theme'
+core_version_requirement: ^8 || ^9
+base theme: classy
+
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  content: Content
+  footer: 'Footer'
