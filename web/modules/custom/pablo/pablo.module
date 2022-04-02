@@ -1,0 +1,14 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function pablo_theme($existing, $type, $theme, $path) {
+  return [
+    'cats_template' => [
+      'variables' => [
+        'catsTitle' => NULL,
+        'form' => NULL
+      ],
+    ],
+  ];
+}

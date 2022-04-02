@@ -1,0 +1,6 @@
+pablo.cats:
+  path: '/pablo/cats'
+  defaults:
+    _controller: '\Drupal\pablo\Controller\CatsController::content'
+  requirements:
+    _permission: 'access content'
