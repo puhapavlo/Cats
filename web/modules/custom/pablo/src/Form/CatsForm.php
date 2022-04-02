@@ -44,6 +44,13 @@ class CatsForm extends FormBase{
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-
+    \Drupal::messenger()->addMessage(t('Thank you very much for your message. The input data is valid'), 'status');
   }
+
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    if (strlen($form_state->getValue('name')) < 2 || strlen($form_state->getValue('name')) > 32)  {
+      $form_state->setErrorByName('name', $this->t('The minimum length of the name is 2 characters, and the maximum is 32'));
+    }
+  }
+
 }
