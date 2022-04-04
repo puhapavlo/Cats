@@ -57,8 +57,10 @@ class CatsForm extends FormBase{
     ];
 
     $form['field_image'] = [
+        '#title' => $this->t('Photo of your cat:'),
         '#type' => 'managed_file',
-        '#description' => 'The image format should be jpeg, jpg, png and the file size should not exceed 2 MB',
+        '#description' => $this->t('The image format should be jpeg, jpg, png and the file size should not exceed 2 MB'),
+        '#default_value' => null,
         '#upload_validators' => [
           'file_validate_extensions' => ['jpg jpeg png'],
           'file_validate_size' => [2000000],
@@ -99,6 +101,10 @@ class CatsForm extends FormBase{
     elseif(!preg_match('/^[a-z-_]+$/i', $form_state->getValue('email'))){
       $ajax_response->addCommand(new MessageCommand($this->t('The email can only contain Latin letters, underscores or hyphens.'),  '#form-system-messages', ['type' => 'error'], TRUE));
       $ajax_response->addCommand(new CssCommand('.form-email', ['border' => '2px solid red']));
+    }
+
+    elseif($form_state->getValue('field_image') == null){
+      $ajax_response->addCommand(new MessageCommand($this->t('Photo of your cat: field is required.'),  '#form-system-messages', ['type' => 'error'], TRUE));
     }
 
     else{
