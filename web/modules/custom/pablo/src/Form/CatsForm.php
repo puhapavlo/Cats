@@ -56,6 +56,18 @@ class CatsForm extends FormBase{
       ],
     ];
 
+    $form['field_image'] = [
+        '#type' => 'managed_file',
+        '#description' => 'The image format should be jpeg, jpg, png and the file size should not exceed 2 MB',
+        '#upload_validators' => [
+          'file_validate_extensions' => ['jpg jpeg png'],
+          'file_validate_size' => [2000000],
+        ],
+        '#preview_image_style' => 'medium',
+        '#upload_location' => 'public://',
+        '#required' => TRUE,
+  ];
+
     // Add a submit button that handles the submission of the form.
     $form['actions']['submit'] = [
       '#type' => 'submit',
