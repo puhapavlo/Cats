@@ -36,6 +36,18 @@ class CatsForm extends FormBase{
       ],
     ];
 
+    $form['email'] = [
+      '#type' => 'email',
+      '#title' => $this->t('Your email:'),
+      '#description' => $this->t('The name can only contain Latin letters, underscores or hyphens.'),
+      '#required' => TRUE,
+      '#attributes' => [
+        'class' => [
+          'form-email'
+        ]
+      ],
+    ];
+
     // Add a submit button that handles the submission of the form.
     $form['actions']['submit'] = [
       '#type' => 'submit',
