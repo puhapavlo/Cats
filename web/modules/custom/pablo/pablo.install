@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @return mixed
+ * Implements hook_schema()
+ */
+function pablo_schema() {
+  $schema['pablo'] = [
+    'description' => 'Database Cats',
+    'fields' => [
+      'id' => [
+        'description' => 'ID',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+
+      'cat_name' => [
+        'description' => 'Cat\'s name',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+
+      'email' => [
+        'description' => 'Email',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+
+      'cat_photo' => [
+        'description' => 'Cat\'s photo',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+
+      'timestamp' => [
+        'description' => 'Timestamp field',
+        'type' => 'varchar',
+        'mysql_type' => 'timestamp',
+        'not null' => TRUE,
+      ],
+    ],
+
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function pablo_uninstall() {
+  Drupal::state()->delete('pablo.pablo');
+}

@@ -57,6 +57,7 @@ class CatsForm extends FormBase{
     ];
 
     $form['field_image'] = [
+        '#title' => $this->t('Photo of your cat:'),
         '#type' => 'managed_file',
         '#description' => 'The image format should be jpeg, jpg, png and the file size should not exceed 2 MB',
         '#upload_validators' => [
