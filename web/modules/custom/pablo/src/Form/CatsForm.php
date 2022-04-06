@@ -15,7 +15,6 @@ use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
-use Exception;
 
 class CatsForm extends FormBase{
 
@@ -116,7 +115,8 @@ class CatsForm extends FormBase{
       $file->setPermanent();
       $file->save();
       $uri = $file->getFileUri();
-      $fields["cat_photo"] = $uri;
+      $url = file_create_url($uri);
+      $fields["cat_photo"] = $url;
       $current_timestamp = \Drupal::time()->getCurrentTime();
       $todays_date = \Drupal::service('date.formatter')->format($current_timestamp, 'custom', 'd/M/Y H:i:s');
       $fields["timestamp"] = $todays_date;

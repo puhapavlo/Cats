@@ -7,8 +7,14 @@ function pablo_theme($existing, $type, $theme, $path) {
     'cats_template' => [
       'variables' => [
         'catsTitle' => NULL,
-        'form' => NULL
+        'form' => NULL,
+        'cats' => NULL,
       ],
     ],
+    'cats-items' => [
+      'variables' => [
+        'items' => NULL,
+      ],
+    ]
   ];
 }

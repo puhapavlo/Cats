@@ -22,10 +22,14 @@ class CatsController extends ControllerBase {
    */
   public function content() {
     $CatsForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\CatsForm');
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $config = [];
+    $cats_items_block = $block_manager->createInstance('cats_items', $config);
     return [
       '#theme' => 'cats_template',
       '#catsTitle' => 'Hello! You can add here a photo of your cat.',
-      '#form' => $CatsForm
+      '#form' => $CatsForm,
+      '#cats' => $cats_items_block->build(),
     ];
   }
 
