@@ -7,11 +7,15 @@
 
 namespace Drupal\pablo\Form;
 
+use Drupal;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CssCommand;
 use Drupal\Core\Ajax\MessageCommand;
+use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
+use Exception;
 
 class CatsForm extends FormBase{
 
@@ -65,7 +69,7 @@ class CatsForm extends FormBase{
           'file_validate_size' => [2000000],
         ],
         '#preview_image_style' => 'medium',
-        '#upload_location' => 'public://',
+        '#upload_location' => 'public://images',
         '#required' => TRUE,
   ];
 
@@ -103,6 +107,22 @@ class CatsForm extends FormBase{
     }
 
     else{
+      $conn = Database::getConnection();
+
+      $fields["cat_name"] = $form_state->getValue('name');
+      $fields["email"] = $form_state->getValue('email');
+      $fid = $form_state->getValue('field_image');
+      $file = File::load($fid[0]);
+      $file->setPermanent();
+      $file->save();
+      $uri = $file->getFileUri();
+      $fields["cat_photo"] = $uri;
+      $current_timestamp = \Drupal::time()->getCurrentTime();
+      $todays_date = \Drupal::service('date.formatter')->format($current_timestamp, 'custom', 'd/M/Y H:i:s');
+      $fields["timestamp"] = $todays_date;
+
+      $conn->insert('pablo')->fields($fields)->execute();
+
       $ajax_response->addCommand(new MessageCommand($this->t('Thank you very much for your message. The input data is valid'),  '#form-system-messages', ['type' => 'status']));
     }
     return $ajax_response;

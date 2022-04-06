@@ -39,7 +39,7 @@ function pablo_schema() {
       'timestamp' => [
         'description' => 'Timestamp field',
         'type' => 'varchar',
-        'mysql_type' => 'timestamp',
+        'length' => 255,
         'not null' => TRUE,
       ],
     ],
@@ -49,6 +49,7 @@ function pablo_schema() {
 
   return $schema;
 }
+
 
 /**
  * Implements hook_uninstall().
