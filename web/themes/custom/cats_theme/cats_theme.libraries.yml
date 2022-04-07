@@ -13,3 +13,4 @@ pablo-module:
   css:
     components:
       css/components/cats-form.css: {}
+      css/components/cats-items.css: {}

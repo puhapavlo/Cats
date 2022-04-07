@@ -1,8 +1,14 @@
 {% for item in items %}
   <div class="cats-item">
-    <img src="{{ item.cat_photo }}" alt="photo cat">
-    {{ item.cat_name }}
-    {{ item.email }}
-    {{ item.timestamp }}
+    <div class="cats-img-container">
+      <a class="cats-img-link" href="{{ item.cat_photo }}">
+        <img class="cats-photo" src="{{ item.cat_photo }}" alt="photo cat">
+      </a>
+    </div>
+    <div class="cats-name">{{% trans %}}Cat`s name:{{% endtrans %}} {{ item.cat_name }}</div>
+    <div class="cats-email">{{% trans %}}Email:{{% endtrans %}}
+      <a href="{{ item.email }}" class="cats-email-link">{{ item.email }}</a>
+    </div>
+    <div class="cats-timestamp">{{ item.timestamp }}</div>
   </div>
 {% endfor %}
