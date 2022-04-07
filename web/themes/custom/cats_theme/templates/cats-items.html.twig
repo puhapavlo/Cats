@@ -5,8 +5,8 @@
         <img class="cats-photo" src="{{ item.cat_photo }}" alt="photo cat">
       </a>
     </div>
-    <div class="cats-name">{{% trans %}}Cat`s name:{{% endtrans %}} {{ item.cat_name }}</div>
-    <div class="cats-email">{{% trans %}}Email:{{% endtrans %}}
+    <div class="cats-name">{% trans %}Cat`s name:{% endtrans %} {{ item.cat_name }}</div>
+    <div class="cats-email">{% trans %}Email:{% endtrans %}
       <a href="{{ item.email }}" class="cats-email-link">{{ item.email }}</a>
     </div>
     <div class="cats-timestamp">{{ item.timestamp }}</div>

@@ -41,22 +41,37 @@ class __TwigTemplate_298cf318cfdb55bb8e6d5a35c4524df9f2cde6875c98b430eab76a6f240
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
             // line 2
             echo "  <div class=\"cats-item\">
-    <img src=\"";
-            // line 3
-            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "cat_photo", [], "any", false, false, true, 3), 3, $this->source), "html", null, true);
-            echo "\" alt=\"photo cat\">
-    ";
+    <div class=\"cats-img-container\">
+      <a class=\"cats-img-link\" href=\"";
             // line 4
-            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "cat_name", [], "any", false, false, true, 4), 4, $this->source), "html", null, true);
-            echo "
-    ";
+            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "cat_photo", [], "any", false, false, true, 4), 4, $this->source), "html", null, true);
+            echo "\">
+        <img class=\"cats-photo\" src=\"";
             // line 5
-            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "email", [], "any", false, false, true, 5), 5, $this->source), "html", null, true);
-            echo "
-    ";
-            // line 6
-            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "timestamp", [], "any", false, false, true, 6), 6, $this->source), "html", null, true);
-            echo "
+            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "cat_photo", [], "any", false, false, true, 5), 5, $this->source), "html", null, true);
+            echo "\" alt=\"photo cat\">
+      </a>
+    </div>
+    <div class=\"cats-name\">";
+            // line 8
+            echo t("Cat`s name:", array());
+            echo " ";
+            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "cat_name", [], "any", false, false, true, 8), 8, $this->source), "html", null, true);
+            echo "</div>
+    <div class=\"cats-email\">";
+            // line 9
+            echo t("Email:", array());
+            // line 10
+            echo "      <a href=\"";
+            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "email", [], "any", false, false, true, 10), 10, $this->source), "html", null, true);
+            echo "\" class=\"cats-email-link\">";
+            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "email", [], "any", false, false, true, 10), 10, $this->source), "html", null, true);
+            echo "</a>
+    </div>
+    <div class=\"cats-timestamp\">";
+            // line 12
+            echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, $context["item"], "timestamp", [], "any", false, false, true, 12), 12, $this->source), "html", null, true);
+            echo "</div>
   </div>
 ";
         }
@@ -77,7 +92,7 @@ class __TwigTemplate_298cf318cfdb55bb8e6d5a35c4524df9f2cde6875c98b430eab76a6f240
 
     public function getDebugInfo()
     {
-        return array (  58 => 6,  54 => 5,  50 => 4,  46 => 3,  43 => 2,  39 => 1,);
+        return array (  73 => 12,  65 => 10,  63 => 9,  57 => 8,  51 => 5,  47 => 4,  43 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -87,13 +102,13 @@ class __TwigTemplate_298cf318cfdb55bb8e6d5a35c4524df9f2cde6875c98b430eab76a6f240
     
     public function checkSecurity()
     {
-        static $tags = array("for" => 1);
-        static $filters = array("escape" => 3);
+        static $tags = array("for" => 1, "trans" => 8);
+        static $filters = array("escape" => 4);
         static $functions = array();
 
         try {
             $this->sandbox->checkSecurity(
-                ['for'],
+                ['for', 'trans'],
                 ['escape'],
                 []
             );
