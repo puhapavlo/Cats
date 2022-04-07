@@ -2,15 +2,18 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  clear: both;
+  padding-bottom: 60px;
+  margin-top: 120px;
 }
 
 .cats-item {
+  padding: 30px 46px;
   clear: both;
 }
 
@@ -34,4 +37,26 @@
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.cats-name {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.cats-email {
+  margin-top: 10px;
+}
+
+.cats-email-link {
+  text-decoration: none;
+  color: #111;
+  font-size: 18px;
+}
+
+.cats-timestamp {
+  margin-top: 30px;
+  text-align: right;
+  color: grey;
+  font-size: 13px;
 }

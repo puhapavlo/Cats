@@ -1,11 +1,15 @@
 .cats-items{
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  clear: both;
+  padding-bottom: 60px;
+  margin-top: 120px;
 }
 
 .cats-item{
-   clear: both;
+  padding: 30px 46px;
+  clear: both;
 }
 
 .cats-img-container{
@@ -21,4 +25,26 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.cats-name{
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.cats-email{
+  margin-top: 10px;
+}
+
+.cats-email-link{
+  text-decoration: none;
+  color: #111;
+  font-size: 18px;
+}
+
+.cats-timestamp{
+  margin-top: 30px;
+  text-align: right;
+  color: grey;
+  font-size: 13px;
 }
