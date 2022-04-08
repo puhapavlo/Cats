@@ -57,6 +57,10 @@ class __TwigTemplate_baf08a766c7195216bdca5567df6a75e8e0f0c657f772488de97577f58b
         // line 8
         echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["EditForm"] ?? null), 8, $this->source), "html", null, true);
         echo "
+";
+        // line 9
+        echo $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->extensions['Drupal\Core\Template\TwigExtension']->attachLibrary("cats_theme/pablo-module"), "html", null, true);
+        echo "
 
 ";
     }
@@ -73,7 +77,7 @@ class __TwigTemplate_baf08a766c7195216bdca5567df6a75e8e0f0c657f772488de97577f58b
 
     public function getDebugInfo()
     {
-        return array (  58 => 8,  54 => 7,  49 => 5,  44 => 3,  39 => 2,);
+        return array (  62 => 9,  58 => 8,  54 => 7,  49 => 5,  44 => 3,  39 => 2,);
     }
 
     public function getSourceContext()
@@ -85,13 +89,13 @@ class __TwigTemplate_baf08a766c7195216bdca5567df6a75e8e0f0c657f772488de97577f58b
     {
         static $tags = array();
         static $filters = array("escape" => 2);
-        static $functions = array();
+        static $functions = array("attach_library" => 9);
 
         try {
             $this->sandbox->checkSecurity(
                 [],
                 ['escape'],
-                []
+                ['attach_library']
             );
         } catch (SecurityError $e) {
             $e->setSourceContext($this->source);

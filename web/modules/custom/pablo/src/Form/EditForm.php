@@ -77,7 +77,6 @@ class EditForm extends FormBase {
       ],
       '#preview_image_style' => 'medium',
       '#upload_location' => 'public://images',
-      '#required' => TRUE,
     ];
 
     $form['cancel'] = [
@@ -94,12 +93,21 @@ class EditForm extends FormBase {
 
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Update cat'),
+      '#value' => $this->t('UPDATE CAT'),
       '#attributes' => [
         'class' => [
           'form-submit'
         ]
       ],
+    ];
+
+    $form['id-item-edit'] = [
+      '#type' => 'hidden',
+      '#attributes' => [
+        'class' => [
+          'form-id-item-edit'
+        ]
+      ]
     ];
 
     return $form;
@@ -123,11 +131,33 @@ class EditForm extends FormBase {
     if (strlen($form_state->getValue('name')) < 2 || strlen($form_state->getValue('name')) > 32) {
       \Drupal::messenger()->addError($this->t('The minimum length of the name is 2 characters, and the maximum is 32.'));
     }
-    elseif (!preg_match('/^[a-z-_]+$/i', $form_state->getValue('email'))){
+    elseif (!preg_match('/^[a-z-_]+$/i', $form_state->getValue('email'))) {
       \Drupal::messenger()->addError($this->t('The email can only contain Latin letters, underscores or hyphens.'));
     }
+    elseif ($form_state->getValue('field_image') == NULL) {
+      $query = \Drupal::database()->update('pablo');
+      $query->fields([
+        'cat_name' => $form_state->getValue('name'),
+        'email' => $form_state->getValue('email'),
+      ]);
+      $query->condition('id', $form_state->getValue('id-item-edit'));
+      $query->execute();
+    }
     else{
-
+      $query = \Drupal::database()->update('pablo');
+      $fid = $form_state->getValue('field_image');
+      $file = File::load($fid[0]);
+      $file->setPermanent();
+      $file->save();
+      $uri = $file->getFileUri();
+      $url = file_create_url($uri);
+      $query->fields([
+        'cat_name' => $form_state->getValue('name'),
+        'email' => $form_state->getValue('email'),
+        'cat_photo' => $url,
+      ]);
+      $query->condition('id', $form_state->getValue('id-item-edit'));
+      $query->execute();
     }
   }
 

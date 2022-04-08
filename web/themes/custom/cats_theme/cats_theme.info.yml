@@ -6,7 +6,6 @@ base theme: classy
 
 libraries:
   - cats_theme/global-styling
-  - cats_theme/pablo-module
 
 regions:
   header: Header
