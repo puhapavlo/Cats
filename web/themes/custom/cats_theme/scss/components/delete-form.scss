@@ -1,7 +1,38 @@
+@import "../dev/variables";
+
 .form-delete{
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
+  text-align: center;
+  padding: 30px;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: 0.3s all;
 }
 
 .modalDelete_active{
-  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.form-submit-delete, .form-cancel{
+  height: 35px;
+  width: 110px;
+  background-color: $violet;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+
+  &:hover{
+    transition: all ease-in-out 0.3s;
+    background-color: $darkViolet;
+  }
 }

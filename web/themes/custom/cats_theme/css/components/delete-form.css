@@ -1,7 +1,39 @@
 .form-delete {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 30;
+  -webkit-box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 30px;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
 }
 
 .modalDelete_active {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.form-submit-delete, .form-cancel {
+  height: 35px;
+  width: 110px;
+  background-color: #a2369c;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+}
+.form-submit-delete:hover, .form-cancel:hover {
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  background-color: #72266d;
 }
