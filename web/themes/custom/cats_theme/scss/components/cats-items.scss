@@ -1,3 +1,5 @@
+@import "../dev/variables";
+
 .cats-items{
   display: flex;
   align-items: center;
@@ -47,4 +49,29 @@
   text-align: right;
   color: grey;
   font-size: 13px;
+}
+
+.cats-editor{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.cats-edit, .cats-delete{
+  height: 35px;
+  width: 110px;
+  background-color: $violet;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+
+  &:hover{
+    transition: all ease-in-out 0.3s;
+    background-color: $darkViolet;
+  }
+}
+
+.cats-edit{
+  margin-right: 20px;
 }

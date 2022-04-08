@@ -60,3 +60,34 @@
   color: grey;
   font-size: 13px;
 }
+
+.cats-editor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+}
+
+.cats-edit, .cats-delete {
+  height: 35px;
+  width: 110px;
+  background-color: #a2369c;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+}
+.cats-edit:hover, .cats-delete:hover {
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  background-color: #72266d;
+}
+
+.cats-edit {
+  margin-right: 20px;
+}

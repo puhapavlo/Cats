@@ -1,0 +1,3 @@
+Delete and edit cats:
+  title: 'Delete and edit cats'
+  restrict access: true

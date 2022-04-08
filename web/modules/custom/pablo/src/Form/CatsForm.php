@@ -7,7 +7,6 @@
 
 namespace Drupal\pablo\Form;
 
-use Drupal;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CssCommand;
 use Drupal\Core\Ajax\MessageCommand;

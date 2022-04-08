@@ -21,7 +21,7 @@ class cats_items extends BlockBase {
   public function build() {
     $db = \Drupal::database();
     $query = $db->select('pablo', 'p');
-    $query->fields('p', ['cat_name', 'email', 'cat_photo', 'timestamp']);
+    $query->fields('p', ['id', 'cat_name', 'email', 'cat_photo', 'timestamp']);
     $query->orderBy('timestamp', 'DESC');
     $result = $query->execute()->fetchAll();
     return array(

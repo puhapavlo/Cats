@@ -1,0 +1,7 @@
+.form-delete {
+  display: none;
+}
+
+.modalDelete_active {
+  display: block;
+}

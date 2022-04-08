@@ -14,3 +14,6 @@ pablo-module:
     components:
       css/components/cats-form.css: {}
       css/components/cats-items.css: {}
+      css/components/delete-form.css: {}
+  js:
+    js/delete.js: {}
