@@ -17,3 +17,4 @@ pablo-module:
       css/components/delete-form.css: {}
   js:
     js/delete.js: {}
+    js/edit.js: {}

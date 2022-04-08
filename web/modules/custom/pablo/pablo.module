@@ -10,6 +10,7 @@ function pablo_theme($existing, $type, $theme, $path) {
         'form' => NULL,
         'cats' => NULL,
         'DeleteForm' => NULL,
+        'EditForm' => NULL,
       ],
     ],
     'cats-items' => [

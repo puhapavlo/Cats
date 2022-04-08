@@ -1,7 +1,8 @@
 @import "../dev/variables";
 
-.form-delete{
+.form-delete, .form-edit{
   visibility: hidden;
+  overflow: visible;
   opacity: 0;
   width: 100%;
   max-width: 600px;
@@ -16,11 +17,11 @@
   border-radius: 3px;
   background-color: #fff;
   transition: 0.3s all;
-}
 
-.modalDelete_active{
-  visibility: visible;
-  opacity: 1;
+  &.active{
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .form-submit-delete, .form-cancel{
@@ -29,6 +30,7 @@
   background-color: $violet;
   font-weight: 500;
   color: #fff;
+  margin-left: 20px;
   border: none;
 
   &:hover{

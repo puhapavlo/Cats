@@ -5,12 +5,12 @@ const idItem = document.querySelector('.form-id-item');
 
 deleteBtns.forEach(deleteBtn => {
   deleteBtn.addEventListener('click', () => {
-    modalDelete.classList.add('modalDelete_active');
+    modalDelete.classList.add('active');
     idItem.value = deleteBtn.dataset.itemid;
   })
 });
 
 cancelBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  modalDelete.classList.remove('modalDelete_active');
+  modalDelete.classList.remove('active');
 });

@@ -23,6 +23,7 @@ class CatsController extends ControllerBase {
   public function content() {
     $CatsForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\CatsForm');
     $DeleteForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteForm');
+    $EditForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\EditForm');
 
     $block_manager = \Drupal::service('plugin.manager.block');
     $config = [];
@@ -33,6 +34,7 @@ class CatsController extends ControllerBase {
       '#form' => $CatsForm,
       '#cats' => $cats_items_block->build(),
       '#DeleteForm' => $DeleteForm,
+      '#EditForm' => $EditForm,
     ];
   }
 

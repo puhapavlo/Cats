@@ -29,17 +29,6 @@ class DeleteForm extends FormBase{
       ]
     ];
 
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('OK'),
-      '#attributes' => [
-        'class' => [
-          'form-submit',
-          'form-submit-delete'
-        ]
-      ],
-    ];
-
     $form['cancel'] = [
       '#type' => 'button',
       '#value' => $this->t('CANCEL'),
@@ -49,6 +38,17 @@ class DeleteForm extends FormBase{
           'form-cancel'
         ]
       ]
+    ];
+
+    $form['actions']['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('OK'),
+      '#attributes' => [
+        'class' => [
+          'form-submit',
+          'form-submit-delete'
+        ]
+      ],
     ];
 
     $form['id-item'] = [
