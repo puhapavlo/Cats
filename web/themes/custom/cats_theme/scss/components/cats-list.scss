@@ -1,0 +1,59 @@
+@import "../dev/variables";
+
+.cats-delete-multiple, .cats-delete-all{
+  margin-top: 20px;
+  padding: 0 10px;
+  height: 35px;
+  background-color: $violet;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+
+  &:hover{
+    transition: all ease-in-out 0.3s;
+    background-color: $darkViolet;
+  }
+}
+
+.cats-delete-multiple{
+  margin-right: 20px;
+}
+
+.cats-list{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+
+  .cats-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .cats-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cats-editor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cats-edit{
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .cats-img-container{
+    width: 180px;
+    height: 180px;
+  }
+
+  .cats-check, .cat-check{
+    width: 25px;
+    height: 25px;
+  }
+}

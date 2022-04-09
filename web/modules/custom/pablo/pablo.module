@@ -17,6 +17,14 @@ function pablo_theme($existing, $type, $theme, $path) {
       'variables' => [
         'items' => NULL,
       ],
-    ]
+    ],
+    'cats-list' => [
+      'variables' => [
+        'items' => NULL,
+        'DeleteForm' => NULL,
+        'EditForm' => NULL,
+        'DeleteAllForm' => NULL,
+      ],
+    ],
   ];
 }

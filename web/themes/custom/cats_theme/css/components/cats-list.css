@@ -1,0 +1,75 @@
+.cats-delete-multiple, .cats-delete-all {
+  margin-top: 20px;
+  padding: 0 10px;
+  height: 35px;
+  background-color: #a2369c;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+}
+.cats-delete-multiple:hover, .cats-delete-all:hover {
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  background-color: #72266d;
+}
+
+.cats-delete-multiple {
+  margin-right: 20px;
+}
+
+.cats-list {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.cats-list .cats-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.cats-list .cats-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.cats-list .cats-editor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.cats-list .cats-edit {
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+.cats-list .cats-img-container {
+  width: 180px;
+  height: 180px;
+}
+.cats-list .cats-check, .cats-list .cat-check {
+  width: 25px;
+  height: 25px;
+}

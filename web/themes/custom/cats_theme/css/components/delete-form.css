@@ -1,4 +1,4 @@
-.form-delete, .form-edit {
+.form-delete, .form-edit, .form-delete-all {
   visibility: hidden;
   overflow: visible;
   opacity: 0;
@@ -19,7 +19,7 @@
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
 }
-.form-delete.active, .form-edit.active {
+.form-delete.active, .form-edit.active, .form-delete-all.active {
   visibility: visible;
   opacity: 1;
 }

@@ -19,3 +19,10 @@ pablo-module:
   js:
     js/delete.js: {}
     js/edit.js: {}
+cats-list:
+  version: VERSION
+  css:
+    components:
+      css/components/cats-list.css: {}
+  js:
+    js/deleteAll.js: {}

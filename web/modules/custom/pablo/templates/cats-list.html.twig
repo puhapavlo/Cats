@@ -1,0 +1,35 @@
+<button class="cats-delete-multiple" data-itemsId="{{ item.id }}">DELETE SELECTED</button>
+<button class="cats-delete-all">DELETE ALL</button>
+<ul class="cats-list">
+  {% for item in items %}
+    <li class="cats-item">
+      <input class="cat-check" type="checkbox">
+      <div class="cats-img-container">
+        <a class="cats-img-link" href="{{ item.cat_photo }}">
+          <img class="cats-photo" src="{{ item.cat_photo }}" alt="photo cat">
+        </a>
+      </div>
+      <div class="cats-info">
+        <div class="cats-name">{% trans %}Cat`s name:{% endtrans %} <span data-itemId="{{ item.id }}" class="cats-name-value">{{ item.cat_name }}</span></div>
+        <div class="cats-email" data-itemId="{{ item.id }}">{% trans %}Email:{% endtrans %}
+          <a data-itemId="{{ item.id }}" href="mailto:{{ item.email }}" class="cats-email-link">{{ item.email }}</a>
+        </div>
+      </div>
+      <div class="cats-timestamp">{{ item.timestamp }}</div>
+      {% if user.hasPermission('Delete and edit cats') %}
+        <div class="cats-editor">
+          <button class="cats-edit" data-itemId="{{ item.id }}">EDIT</button>
+          <button class="cats-delete" data-itemId="{{ item.id }}">DELETE</button>
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{{ DeleteForm }}
+{{ EditForm }}
+{{ DeleteAllForm }}
+
+
+{{ attach_library('cats_theme/pablo-module') }}
+{{ attach_library('cats_theme/cats-list') }}
