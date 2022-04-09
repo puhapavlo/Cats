@@ -3,7 +3,7 @@
 <ul class="cats-list">
   {% for item in items %}
     <li class="cats-item">
-      <input class="cat-check" type="checkbox">
+      <input data-itemId="{{ item.id }}" class="cat-check" type="checkbox">
       <div class="cats-img-container">
         <a class="cats-img-link" href="{{ item.cat_photo }}">
           <img class="cats-photo" src="{{ item.cat_photo }}" alt="photo cat">
@@ -29,6 +29,7 @@
 {{ DeleteForm }}
 {{ EditForm }}
 {{ DeleteAllForm }}
+{{ DeleteMultipleForm }}
 
 
 {{ attach_library('cats_theme/pablo-module') }}

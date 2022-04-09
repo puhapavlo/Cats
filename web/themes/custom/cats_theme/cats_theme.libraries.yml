@@ -26,3 +26,4 @@ cats-list:
       css/components/cats-list.css: {}
   js:
     js/deleteAll.js: {}
+    js/deleteMultiple.js: {}

@@ -30,12 +30,14 @@ class CatsListController extends ControllerBase {
     $DeleteForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteForm');
     $EditForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\EditForm');
     $DeleteAllForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteAllForm');
+    $DeleteMultipleForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteMultipleForm');
     return [
       '#theme' => 'cats-list',
       '#items' => $result,
       '#DeleteForm' => $DeleteForm,
       '#EditForm' => $EditForm,
       '#DeleteAllForm' => $DeleteAllForm,
+      '#DeleteMultipleForm' => $DeleteMultipleForm,
     ];
   }
 

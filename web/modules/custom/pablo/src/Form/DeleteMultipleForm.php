@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\pablo\Form\DeleteAllForm.
+ * Contains \Drupal\pablo\Form\DeleteMultipleForm.
  *
  */
 
@@ -10,18 +10,18 @@ namespace Drupal\pablo\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-class DeleteAllForm extends FormBase{
+class DeleteMultipleForm extends FormBase{
   public function getFormId() {
-    return 'delete_all_form';
+    return 'delete_multiple_form';
   }
 
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#attributes']['class'][] = 'form-delete-all';
+    $form['#attributes']['class'][] = 'form-delete-multiple';
 
     $form['title'] = [
       '#type' => 'html_tag',
       '#tag' => 'h3',
-      '#value' => $this->t('Are you sure you want to delete all entries?'),
+      '#value' => $this->t('Are you sure you want to delete the selected entries?'),
       '#attributes' => [
         'class' => [
           'form-title'
@@ -36,7 +36,7 @@ class DeleteAllForm extends FormBase{
         'class' => [
           'form-submit',
           'form-cancel',
-          'form-cancel-all'
+          'form-cancel-multiple'
         ]
       ]
     ];
@@ -47,17 +47,30 @@ class DeleteAllForm extends FormBase{
       '#attributes' => [
         'class' => [
           'form-submit',
-          'form-submit-delete'
+          'form-selected-delete',
         ]
       ],
+    ];
+
+    $form['id-item'] = [
+      '#type' => 'hidden',
+      '#attributes' => [
+        'class' => [
+          'form-id-item-multiple'
+        ]
+      ]
     ];
 
     return $form;
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    \Drupal::database()->truncate('pablo')->execute();
-    \Drupal::messenger()->addStatus($this->t('All entry deleted successfully.'));
+    $items = explode(" ", $form_state->getValue('id-item'));
+    $query = \Drupal::database()->delete('pablo');
+    $query->condition('id', $items, 'IN');
+    $query->execute();
+
+    \Drupal::messenger()->addStatus($this->t('Entries deleted successfully.'));
   }
 
 }

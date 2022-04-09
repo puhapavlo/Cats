@@ -24,6 +24,7 @@ function pablo_theme($existing, $type, $theme, $path) {
         'DeleteForm' => NULL,
         'EditForm' => NULL,
         'DeleteAllForm' => NULL,
+        'DeleteMultipleForm' => NULL,
       ],
     ],
   ];
