@@ -93,7 +93,7 @@ class EditForm extends FormBase {
 
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('UPDATE CAT'),
+      '#value' => $this->t('UPDATE'),
       '#attributes' => [
         'class' => [
           'form-submit'
@@ -142,6 +142,7 @@ class EditForm extends FormBase {
       ]);
       $query->condition('id', $form_state->getValue('id-item-edit'));
       $query->execute();
+      \Drupal::messenger()->addStatus($this->t(' Entry modified successfully.'));
     }
     else{
       $query = \Drupal::database()->update('pablo');
@@ -158,6 +159,7 @@ class EditForm extends FormBase {
       ]);
       $query->condition('id', $form_state->getValue('id-item-edit'));
       $query->execute();
+      \Drupal::messenger()->addStatus($this->t(' Entry modified successfully.'));
     }
   }
 
