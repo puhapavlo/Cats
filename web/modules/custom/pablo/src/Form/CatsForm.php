@@ -100,6 +100,7 @@ class CatsForm extends FormBase{
     $patternEmail = '/^[a-z-_]+$/i';
     if (preg_match($patternEmail, $form_state->getValue('email'))) {
       $ajax_response->addCommand(new MessageCommand($this->t('Email is valid'),  '#form-system-messages', ['type' => 'status'], TRUE));
+      $ajax_response->addCommand(new CssCommand('.form-email', ['border' => '2px solid black']));
     }
     else{
       $ajax_response->addCommand(new MessageCommand($this->t('The email can only contain Latin letters, underscores or hyphens.'),  '#form-system-messages', ['type' => 'error'], TRUE));
