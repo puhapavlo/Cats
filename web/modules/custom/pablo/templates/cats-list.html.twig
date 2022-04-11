@@ -1,5 +1,7 @@
+{% if user.hasPermission('Delete and edit cats') %}
 <button class="cats-delete-multiple" data-itemsId="{{ item.id }}">DELETE SELECTED</button>
 <button class="cats-delete-all">DELETE ALL</button>
+{% endif %}
 <ul class="cats-list">
   {% for item in items %}
     <li class="cats-item">

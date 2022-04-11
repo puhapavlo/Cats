@@ -65,12 +65,17 @@ class DeleteMultipleForm extends FormBase{
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $items = explode(" ", $form_state->getValue('id-item'));
-    $query = \Drupal::database()->delete('pablo');
-    $query->condition('id', $items, 'IN');
-    $query->execute();
+    if($form_state->getValue('id-item') == NULL){
+      \Drupal::messenger()->addStatus($this->t('Nothing selected.'));
+    }
+    else{
+      $items = explode(" ", $form_state->getValue('id-item'));
+      $query = \Drupal::database()->delete('pablo');
+      $query->condition('id', $items, 'IN');
+      $query->execute();
 
-    \Drupal::messenger()->addStatus($this->t('Entries deleted successfully.'));
+      \Drupal::messenger()->addStatus($this->t('Entries deleted successfully.'));
+    }
   }
 
 }
