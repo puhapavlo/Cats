@@ -1,11 +1,10 @@
 <?php
-/**
- * @return
- * Contains \Drupal\pablo\Controller\CatsListController.
- */
 
 namespace Drupal\pablo\Controller;
 
+/**
+ * Contains \Drupal\pablo\Controller\CatsListController.
+ */
 
 use Drupal\Core\Controller\ControllerBase;
 
@@ -22,22 +21,22 @@ class CatsListController extends ControllerBase {
    */
   public function content() {
     $db = \Drupal::database();
-    $query = $db->select('pablo', 'p');
-    $query->fields('p', ['id', 'cat_name', 'email', 'cat_photo', 'timestamp']);
-    $query->orderBy('timestamp', 'DESC');
+    $query = $db->select("pablo", "p");
+    $query->fields("p", ["id", "cat_name", "email", "cat_photo", "timestamp"]);
+    $query->orderBy("timestamp", "DESC");
     $result = $query->execute()->fetchAll();
 
-    $DeleteForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteForm');
-    $EditForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\EditForm');
-    $DeleteAllForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteAllForm');
-    $DeleteMultipleForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteMultipleForm');
+    $deleteForm = \Drupal::formBuilder()->getForm("Drupal\pablo\Form\DeleteForm");
+    $editForm = \Drupal::formBuilder()->getForm("Drupal\pablo\Form\EditForm");
+    $deleteAllForm = \Drupal::formBuilder()->getForm("Drupal\pablo\Form\DeleteAllForm");
+    $deleteMultipleForm = \Drupal::formBuilder()->getForm("Drupal\pablo\Form\DeleteMultipleForm");
     return [
-      '#theme' => 'cats-list',
-      '#items' => $result,
-      '#DeleteForm' => $DeleteForm,
-      '#EditForm' => $EditForm,
-      '#DeleteAllForm' => $DeleteAllForm,
-      '#DeleteMultipleForm' => $DeleteMultipleForm,
+      "#theme" => "cats-list",
+      "#items" => $result,
+      "#DeleteForm" => $deleteForm,
+      "#EditForm" => $editForm,
+      "#DeleteAllForm" => $deleteAllForm,
+      "#DeleteMultipleForm" => $deleteMultipleForm,
     ];
   }
 

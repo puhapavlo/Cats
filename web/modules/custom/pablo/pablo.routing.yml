@@ -1,14 +1,14 @@
 pablo.cats:
-  path: '/pablo/cats'
+  path: "/pablo/cats"
   defaults:
     _controller: '\Drupal\pablo\Controller\CatsController::content'
   requirements:
-    _permission: 'access content'
+    _permission: "access content"
 
 pablo.catsList:
-  path: '/admin/structure/catsList'
+  path: "/admin/structure/catsList"
   defaults:
     _controller: '\Drupal\pablo\Controller\CatsListController::content'
   requirements:
-    _permission: 'View cats list'
+    _permission: "View cats list"
 

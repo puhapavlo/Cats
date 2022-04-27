@@ -1,3 +1,12 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a cats list.
+ *
+ * @ingroup themeable
+ */
+#}
+
 {% if user.hasPermission('Delete and edit cats') %}
 <button class="cats-delete-multiple" data-itemsId="{{ item.id }}">DELETE SELECTED</button>
 <button class="cats-delete-all">DELETE ALL</button>
@@ -34,5 +43,5 @@
 {{ DeleteMultipleForm }}
 
 
-{{ attach_library('cats_theme/pablo-module') }}
-{{ attach_library('cats_theme/cats-list') }}
+{{ attach_library('pablo/pablo-module') }}
+{{ attach_library('pablo/cats-list') }}

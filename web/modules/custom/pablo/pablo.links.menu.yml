@@ -1,6 +1,6 @@
 pablo.catsList:
-  title: 'Cats list'
-  description: 'Cats list'
+  title: "Cats list"
+  description: "Cats list"
   route_name: pablo.catsList
   parent: system.admin_structure
   weight: 10

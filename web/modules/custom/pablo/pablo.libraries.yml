@@ -1,0 +1,19 @@
+pablo-module:
+  version: VERSION
+  css:
+    components:
+      css/components/cats-form.css: {}
+      css/components/cats-items.css: {}
+      css/components/delete-form.css: {}
+      css/components/edit-form.css: {}
+  js:
+    js/delete.js: {}
+    js/edit.js: {}
+cats-list:
+  version: VERSION
+  css:
+    components:
+      css/components/cats-list.css: {}
+  js:
+    js/deleteAll.js: {}
+    js/deleteMultiple.js: {}

@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a main page with cats.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<h1 class="cats-title">{{ catsTitle }}</h1>
+{{ form }}
+<div class="cats-items">
+  {{ cats }}
+</div>
+{{ DeleteForm }}
+{{ EditForm }}
+{{ attach_library('pablo/pablo-module') }}
+

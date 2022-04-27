@@ -1,11 +1,10 @@
 <?php
-/**
- * @return
- * Contains \Drupal\pablo\Controller\CatsController.
- */
 
 namespace Drupal\pablo\Controller;
 
+/**
+ * Contains \Drupal\pablo\Controller\CatsController.
+ */
 
 use Drupal\Core\Controller\ControllerBase;
 
@@ -21,20 +20,20 @@ class CatsController extends ControllerBase {
    *   A renderable array.
    */
   public function content() {
-    $CatsForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\CatsForm');
-    $DeleteForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\DeleteForm');
-    $EditForm = \Drupal::formBuilder()->getForm('Drupal\pablo\Form\EditForm');
+    $catsForm = \Drupal::formBuilder()->getForm("Drupal\pablo\Form\CatsForm");
+    $deleteForm = \Drupal::formBuilder()->getForm("Drupal\pablo\Form\DeleteForm");
+    $editForm = \Drupal::formBuilder()->getForm("Drupal\pablo\Form\EditForm");
 
-    $block_manager = \Drupal::service('plugin.manager.block');
+    $blockManager = \Drupal::service("plugin.manager.block");
     $config = [];
-    $cats_items_block = $block_manager->createInstance('cats_items', $config);
+    $catsItemsBlock = $blockManager->createInstance("cats_items", $config);
     return [
-      '#theme' => 'cats_template',
-      '#catsTitle' => 'Hello! You can add here a photo of your cat.',
-      '#form' => $CatsForm,
-      '#cats' => $cats_items_block->build(),
-      '#DeleteForm' => $DeleteForm,
-      '#EditForm' => $EditForm,
+      "#theme" => "cats_template",
+      "#catsTitle" => "Hello! You can add here a photo of your cat.",
+      "#form" => $catsForm,
+      "#cats" => $catsItemsBlock->build(),
+      "#DeleteForm" => $deleteForm,
+      "#EditForm" => $editForm,
     ];
   }
 

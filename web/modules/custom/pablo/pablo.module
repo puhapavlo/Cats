@@ -1,31 +1,48 @@
 <?php
+
+/**
+ * @file
+ * Main file for the Pablo module.
+ */
+
 /**
  * Implements hook_theme().
  */
 function pablo_theme($existing, $type, $theme, $path) {
   return [
-    'cats_template' => [
-      'variables' => [
-        'catsTitle' => NULL,
-        'form' => NULL,
-        'cats' => NULL,
-        'DeleteForm' => NULL,
-        'EditForm' => NULL,
+    "cats_template" => [
+      "variables" => [
+        "catsTitle" => NULL,
+        "form" => NULL,
+        "cats" => NULL,
+        "DeleteForm" => NULL,
+        "EditForm" => NULL,
       ],
     ],
-    'cats-items' => [
-      'variables' => [
-        'items' => NULL,
+    "cats-items" => [
+      "variables" => [
+        "items" => NULL,
       ],
     ],
-    'cats-list' => [
-      'variables' => [
-        'items' => NULL,
-        'DeleteForm' => NULL,
-        'EditForm' => NULL,
-        'DeleteAllForm' => NULL,
-        'DeleteMultipleForm' => NULL,
+    "cats-list" => [
+      "variables" => [
+        "items" => NULL,
+        "DeleteForm" => NULL,
+        "EditForm" => NULL,
+        "DeleteAllForm" => NULL,
+        "DeleteMultipleForm" => NULL,
       ],
     ],
   ];
 }
+
+/**
+ * class cats_items - Неправильна назва класу. array() - замінити на [].
+ * $CatsForm - неправильний стиль назв змінних.
+ * '#theme' => 'cats_template', - темплейт в темі, варто перенести в модуль,
+ * щоб можна було всю роботу віддати одним модулем. Класи форм без кометарів до методів,
+ * не всі коментарі правильно форматовані. Імейл не валідується. Валідація форм дублюється
+ * при валідації і сабміті. file_create_url - депрекейтед метод. Подвійні лапки замість одинарних.
+ * Код не форматований. Дублюється код у формах, треба вткористовувати одну дорму для додавання/редагування.
+ */
+

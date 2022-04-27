@@ -1,20 +1,30 @@
 <?php
+
+namespace Drupal\pablo\Form;
+
 /**
  * @file
  * Contains \Drupal\pablo\Form\DeleteAllForm.
- *
  */
-
-namespace Drupal\pablo\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-class DeleteAllForm extends FormBase{
+/**
+ * Provides form for the pablo module.
+ */
+class DeleteAllForm extends FormBase {
+
+  /**
+   * {@inheritDoc}
+   */
   public function getFormId() {
     return 'delete_all_form';
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#attributes']['class'][] = 'form-delete-all';
 
@@ -24,9 +34,9 @@ class DeleteAllForm extends FormBase{
       '#value' => $this->t('Are you sure you want to delete all entries?'),
       '#attributes' => [
         'class' => [
-          'form-title'
-        ]
-      ]
+          'form-title',
+        ],
+      ],
     ];
 
     $form['cancel'] = [
@@ -36,9 +46,9 @@ class DeleteAllForm extends FormBase{
         'class' => [
           'form-submit',
           'form-cancel',
-          'form-cancel-all'
-        ]
-      ]
+          'form-cancel-all',
+        ],
+      ],
     ];
 
     $form['actions']['submit'] = [
@@ -47,14 +57,17 @@ class DeleteAllForm extends FormBase{
       '#attributes' => [
         'class' => [
           'form-submit',
-          'form-submit-delete'
-        ]
+          'form-submit-delete',
+        ],
       ],
     ];
 
     return $form;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     \Drupal::database()->truncate('pablo')->execute();
     \Drupal::messenger()->addStatus($this->t('All entry deleted successfully.'));

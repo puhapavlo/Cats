@@ -1,26 +1,31 @@
 <?php
-/**
- * @file
- * Contains \Drupal\pablo\Form\EditForm.
- *
- */
 
 namespace Drupal\pablo\Form;
 
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\CssCommand;
-use Drupal\Core\Ajax\MessageCommand;
-use Drupal\Core\Database\Database;
+/**
+ * @file
+ * Contains \Drupal\pablo\Form\EditForm.
+ */
+
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 
+/**
+ * Provides form for the pablo module.
+ */
 class EditForm extends FormBase {
 
+  /**
+   * {@inheritdoc}
+   */
   public function getFormId() {
     return 'edit_form';
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $query = \Drupal::database()->select('pablo', 'p');
     $query->fields('p', ['cat_name', 'email', 'cat_photo']);
@@ -41,7 +46,7 @@ class EditForm extends FormBase {
       '#attributes' => [
         'class' => [
           'form-name',
-          'form-name-edit'
+          'form-name-edit',
         ],
         '#value' => $result[0]['cat_name'],
       ],
@@ -55,14 +60,7 @@ class EditForm extends FormBase {
       '#attributes' => [
         'class' => [
           'form-email',
-          'form-email-edit'
-        ]
-      ],
-      '#ajax' => [
-        'callback' => '::validateEmailAjax',
-        'event' => 'input',
-        'progress' => [
-          'type' => 'throbber',
+          'form-email-edit',
         ],
       ],
     ];
@@ -86,9 +84,9 @@ class EditForm extends FormBase {
         'class' => [
           'form-submit',
           'form-cancel',
-          'form-cancel-edit'
-        ]
-      ]
+          'form-cancel-edit',
+        ],
+      ],
     ];
 
     $form['actions']['submit'] = [
@@ -96,8 +94,8 @@ class EditForm extends FormBase {
       '#value' => $this->t('UPDATE'),
       '#attributes' => [
         'class' => [
-          'form-submit'
-        ]
+          'form-submit',
+        ],
       ],
     ];
 
@@ -105,33 +103,22 @@ class EditForm extends FormBase {
       '#type' => 'hidden',
       '#attributes' => [
         'class' => [
-          'form-id-item-edit'
-        ]
-      ]
+          'form-id-item-edit',
+        ],
+      ],
     ];
 
     return $form;
   }
 
-  public function validateEmailAjax(array &$form, FormStateInterface $form_state) {
-    $ajax_response = new AjaxResponse();
-    $patternEmail = '/^[a-z-_]+$/i';
-    if (preg_match($patternEmail, $form_state->getValue('email'))) {
-      $ajax_response->addCommand(new MessageCommand($this->t('Email is valid'), '#form-messages', ['type' => 'status'], TRUE));
-      $ajax_response->addCommand(new CssCommand('.form-email-edit', ['border' => '2px solid black']));
-    }
-    else {
-      $ajax_response->addCommand(new MessageCommand($this->t('The email can only contain Latin letters, underscores or hyphens.'), '#form-messages', ['type' => 'error'], TRUE));
-      $ajax_response->addCommand(new CssCommand('.form-email-edit', ['border' => '2px solid red']));
-    }
-    return $ajax_response;
-  }
-
+  /**
+   * {@inheritDoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     if (strlen($form_state->getValue('name')) < 2 || strlen($form_state->getValue('name')) > 32) {
       \Drupal::messenger()->addError($this->t('The minimum length of the name is 2 characters, and the maximum is 32.'));
     }
-    elseif (!preg_match('/^[a-z-_]+$/i', $form_state->getValue('email'))) {
+    elseif (!preg_match('/^.+@.+.\..+$/i', $form_state->getValue('email'))) {
       \Drupal::messenger()->addError($this->t('The email can only contain Latin letters, underscores or hyphens.'));
     }
     elseif ($form_state->getValue('field_image') == NULL) {
@@ -142,16 +129,16 @@ class EditForm extends FormBase {
       ]);
       $query->condition('id', $form_state->getValue('id-item-edit'));
       $query->execute();
-      \Drupal::messenger()->addStatus($this->t(' Entry modified successfully.'));
+      \Drupal::messenger()->addStatus($this->t('Entry modified successfully.'));
     }
-    else{
+    else {
       $query = \Drupal::database()->update('pablo');
       $fid = $form_state->getValue('field_image');
       $file = File::load($fid[0]);
       $file->setPermanent();
       $file->save();
       $uri = $file->getFileUri();
-      $url = file_create_url($uri);
+      $url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
       $query->fields([
         'cat_name' => $form_state->getValue('name'),
         'email' => $form_state->getValue('email'),
@@ -159,10 +146,13 @@ class EditForm extends FormBase {
       ]);
       $query->condition('id', $form_state->getValue('id-item-edit'));
       $query->execute();
-      \Drupal::messenger()->addStatus($this->t(' Entry modified successfully.'));
+      \Drupal::messenger()->addStatus($this->t('Entry modified successfully.'));
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public function validateForm(array &$form, FormStateInterface $form_state) {
 
   }

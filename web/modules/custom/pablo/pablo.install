@@ -1,8 +1,12 @@
 <?php
 
 /**
- * @return mixed
- * Implements hook_schema()
+ * @file
+ * Schema and uninstall hooks for pablo module.
+ */
+
+/**
+ * Implements hook_schema().
  */
 function pablo_schema() {
   $schema['pablo'] = [
@@ -49,7 +53,6 @@ function pablo_schema() {
 
   return $schema;
 }
-
 
 /**
  * Implements hook_uninstall().

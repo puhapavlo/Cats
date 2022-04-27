@@ -1,6 +1,6 @@
 Delete and edit cats:
-  title: 'Delete and edit cats'
+  title: "Delete and edit cats"
   restrict access: true
 View cats list:
-  title: 'View cats list'
+  title: "View cats list"
   restrict access: true
